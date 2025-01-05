@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-lg-4 col-md-6" *ngFor="let category of categories">
+    <div class="card">
+      <div class="icon-card">
+        <i class="fa-solid fa-person-digging"> </i>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ category.name }}</h5>
+        <p class="card-text">هذا نص تجريبي لوصف محتوى البطاقة.</p>
+        <a
+          (click)="viewProducts(category.id)"
+          class="btn btn-warning btn-section"
+          >عرض القسم</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

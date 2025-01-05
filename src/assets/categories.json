@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Electronics",
+    "shortDescription": "Electronics are devices that operate using the principles of electronics.",
+    "hasSubCategories": true,
+    "subCategories": [
+      { "id": 101, "name": "Mobiles", "hasSubCategories": false },
+      { "id": 102, "name": "Laptops", "hasSubCategories": false }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Furniture",
+    "hasSubCategories": false
+  }
+]
