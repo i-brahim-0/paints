@@ -26,4 +26,16 @@ export class HeaderComponent implements OnInit {
   toggleMenu() {
     this.isMenuVisible = !this.isMenuVisible;
   }
+
+  handleCategoryClick(category: any): void {
+    if (category.hasSubCategories) {
+      // التوجيه إلى الأقسام الفرعية
+      console.log(`Navigate to Subcategories for Category ID: ${category.id}`);
+      this._Router.navigate([`/category/${category.id}/subcategories`]);
+    } else {
+      // التوجيه إلى المنتجات
+      console.log(`Navigate to Products for Category ID: ${category.id}`);
+      this._Router.navigate([`/category/${category.id}/products`]);
+    }
+  }
 }

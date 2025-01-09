@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactUsComponent },
-  { path: 'category/:id', component: SubCategoryComponent },
+  { path: 'category/:id/subcategories', component: SubCategoryComponent },
+  // { path: 'subcategories/:id', component: SubCategoryComponent },
+  // { path: 'category/:id/products', component: ProductComponent },
   { path: 'category/:id/products', component: ProductComponent },
   { path: '**', component: NotFoundComponent },
 ];

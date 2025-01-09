@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Category, Product } from '../interfaces/product';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,111 +11,100 @@ export class CategoryService {
   private categories: Category[] = [
     {
       id: 1,
-      name: 'اضافات الخرسانة',
-      parentId: null,
-      shortDescription: 'اختصار قصير لمحتوى القسم',
+      name: 'Electronics',
+      hasSubCategories: true,
+      subCategories: [
+        { id: 101, name: 'Mobiles', hasSubCategories: false },
+        { id: 102, name: 'Laptops', hasSubCategories: false },
+      ],
     },
     {
       id: 2,
-      name: 'الأرضيات الصناعية',
-      parentId: null,
-      shortDescription: 'اختصار قصير لمحتوى القسم',
-    },
-    {
-      id: 3,
-      name: 'مواد الترمیم والإصلاح',
-      parentId: null,
-      shortDescription: 'اختصار قصير لمحتوى القسم',
-    },
-    {
-      id: 4,
-      name: 'الارضيات الاسمنتية',
-      parentId: 2,
-      shortDescription: 'اختصار قصير لمحتوى القسم',
-    },
-    {
-      id: 5,
-      name: 'الارضيات الايبوكسية',
-      parentId: 2,
-      shortDescription: 'اختصار قصير لمحتوى القسم',
-    },
-    {
-      id: 6,
-      name: 'أرضيات الملاعب',
-      parentId: 2,
-      shortDescription: 'اختصار قصير لمحتوى القسم',
+      name: 'Furniture',
+      hasSubCategories: false,
     },
   ];
 
   private products: Product[] = [
+    // منتجات مرتبطة بالقسم الفرعي "Mobiles"
     {
-      id: 1,
-      name: 'نيرو كريت دبليو بى',
-      categoryId: 1,
-      description: 'إضافة سائلة بنية اللون خالية من الكلوريدات ',
-      price: 1500,
+      id: 1001,
+      name: 'iPhone 14',
+      price: 999.99,
+      categoryId: 101, // Mobiles
     },
     {
-      id: 2,
-      name: 'نيرو بـوند',
-      categoryId: 1,
-      description: 'مستحلب أبيض من الاسترين بيوتادين المعدل.',
-      price: 800,
+      id: 1002,
+      name: 'Samsung Galaxy S23',
+      price: 849.99,
+      categoryId: 101,
     },
-
+    // منتجات مرتبطة بالقسم الفرعي "Laptops"
     {
-      id: 3,
-      name: 'نيــرو هـارد تـوب',
-      categoryId: 3,
-      description: 'خليط جاهز للاستعمال مكون من أسمنت و إضافات وركام صلب.',
-      price: 300,
+      id: 1003,
+      name: 'MacBook Pro 16"',
+      price: 2499.99,
+      categoryId: 102, // Laptops
     },
     {
-      id: 4,
-      name: 'نيــرو ميتـال تـوب',
-      categoryId: 3,
-      description: 'خليط جاهز للاستعمال مكون من أسمنت و إضافات وركام معدني',
-      price: 150,
+      id: 1004,
+      name: 'Dell XPS 13',
+      price: 1199.99,
+      categoryId: 102,
+    },
+    // منتجات مرتبطة بالقسم الرئيسي "Furniture"
+    {
+      id: 1005,
+      name: 'Wooden Dining Table',
+      price: 299.99,
+      categoryId: 2, // Furniture
     },
     {
-      id: 5,
-      name: 'نيرو هارد توب',
+      id: 1006,
+      name: 'Leather Sofa',
+      price: 499.99,
       categoryId: 2,
-      description: 'خليط جاهز للاستعمال مكون من أسمنت و إضافات وركام معدني',
-      price: 150,
-    },
-    {
-      id: 6,
-      name: 'نيرو كوراندم',
-      categoryId: 2,
-      description: 'خليط جاهز للاستعمال مكون من أسمنت و إضافات وركام معدني',
-      price: 150,
-    },
-    {
-      id: 7,
-      name: 'نيــرو ميتـال تـوب',
-      categoryId: 3,
-      description: 'خليط جاهز للاستعمال مكون من أسمنت و إضافات وركام معدني',
-      price: 150,
-    },
-    {
-      id: 8,
-      name: 'نيرو سيمنت سيلف',
-      categoryId: 3,
-      description: 'خليط جاهز للاستعمال مكون من أسمنت و إضافات وركام معدني',
-      price: 150,
     },
   ];
 
   // جلب الأقسام الرئيسية
-  getMainCategories(): Category[] {
-    return this.categories.filter((catalog) => catalog.parentId === null);
+  getMainCategories(): Observable<any[]> {
+    // جلب الكتالوجات الرئيسية فقط (التي لها أو ليس لها أقسام فرعية)
+    const mainCategories = this.categories.map(
+      ({ subCategories, ...category }) => category
+    );
+    return of(mainCategories);
   }
 
-  // جلب الأقسام الفرعية
-  getSubCategories(parentId: number): Category[] {
-    return this.categories.filter((catalog) => catalog.parentId === parentId);
+  getSubCategories(): Observable<any[]> {
+    const subCategories = this.categories
+      .filter((category) => category.hasSubCategories)
+      .flatMap((category) => category.subCategories || []);
+    return of(subCategories);
   }
+
+  // دالة لجلب القسم بناءً على ID
+  getCategoryById(id: number): any {
+    return this.findCategoryById(this.categories, id);
+  }
+
+  // دالة مساعدة للبحث في الأقسام المتداخلة
+  findCategoryById(categories: any[], id: number): any {
+    for (let category of categories) {
+      if (category.id === id) {
+        return category;
+      }
+      if (category.subCategories && category.subCategories.length > 0) {
+        const subCategory = this.findCategoryById(category.subCategories, id);
+        console.log(subCategory);
+        if (subCategory) {
+          return subCategory;
+        }
+      }
+    }
+    return null;
+  }
+  // OR
 
   // جلب المنتجات بناءً على ID الكتالوج
   getProductsByCategoryId(catalogId: number): Product[] {

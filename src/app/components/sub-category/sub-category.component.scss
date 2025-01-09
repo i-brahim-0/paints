@@ -1,0 +1,23 @@
+@import "../../../styles.scss";
+
+.card {
+  margin-bottom: 15px;
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.1s;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: $primary-color;
+  color: #fff;
+}
+.card .icon-card {
+  text-align: center;
+  font-size: 62px;
+}
+.card .icon-card i {
+  color: yellowgreen;
+}
+.card .card-body {
+  text-align: center;
+}

@@ -39,9 +39,11 @@
           </a>
           <ul class="dropdown-menu">
             <li *ngFor="let category of categories">
-              <a class="dropdown-item" (click)="viewProducts(category.id)">{{
-                category.name
-              }}</a>
+              <a
+                class="dropdown-item"
+                (click)="handleCategoryClick(category)"
+                >{{ category.name }}</a
+              >
             </li>
             <li><a class="dropdown-item" routerLink="#">الجرافياتو</a></li>
             <li><a class="dropdown-item" routerLink="#">المـــاربل</a></li>

@@ -14,20 +14,31 @@ export class SubCategoryComponent implements OnInit {
   constructor(
     private _CategoryService: CategoryService,
     private _ActivatedRoute: ActivatedRoute,
-    private _Route: Router
+    private _Router: Router
   ) {}
 
-  ngOnInit() {
-    // الحصول على معرف الكتالوج الرئيسي من المسار
-    // const catalogId = Number(this._ActivatedRoute.snapshot.paramMap.get('id'));
-    // الحصول على الكتالوج الرئيسي والفرعي
-    // this.parentCategory = this._CategoryService
-    //   .getMainCategories()
-    //   .find((catalog) => catalog.id === catalogId);
-    // this.subCategories = this._CategoryService.getSubCategories(catalogId);
+  ngOnInit(): void {
+    this._CategoryService.getSubCategories().subscribe((data) => {
+      this.subCategories = data;
+    });
+  }
+  onSubCategoryClick(subCategory: any) {
+    if (subCategory.subCategories && subCategory.subCategories.length > 0) {
+      this._CategoryService.getCategoryById(subCategory.id);
+    }
   }
 
-  // viewProducts(catalogId: number) {
-  //   this._Route.navigate([`/category/${catalogId}/products`]);
-  // }
+  handleCategoryClick(category: any): void {
+    if (category.subCategories) {
+      // التوجيه إلى الأقسام الفرعية
+      console.log(
+        `Navigate to Subcategories for Subcategory ID: ${category.id}`
+      );
+      // this._Router.navigate([`/category/${category.id}/subcategories`]);
+    } else {
+      // التوجيه إلى المنتجات
+      console.log(`Navigate to Products for Category ID: ${category.id}`);
+      this._Router.navigate([`/category/${category.id}/products`]);
+    }
+  }
 }

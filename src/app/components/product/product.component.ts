@@ -14,15 +14,11 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private _CategoryService: CategoryService,
-    private _Router: ActivatedRoute
+    private _ActivatedRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this._Router.paramMap.subscribe((params) => {
-      const id = params.get('id');
-      this.categoryId = id ? parseInt(id) : null;
-      console.log(this.productsList);
-      this.loadProducts();
-    });
+    this.categoryId = +this._ActivatedRoute.snapshot.paramMap.get('id')!;
+    this.loadProducts();
   }
 
   loadProducts() {

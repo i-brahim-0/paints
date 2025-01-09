@@ -18,13 +18,25 @@ export class CategoriesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.categories = this._CategoryService.getMainCategories();
-    // OR
-    this.categories = this._CategoryService.getMainCategories(); // استخدام الخدمة لجلب الكتالوجات
+    this.loadCategories();
     this._SharedService.setCatalogs(this.categories); // إرسال البيانات للخدمة المشتركة
   }
 
-  viewProducts(catalogId: number) {
-    this._Router.navigate([`/category/${catalogId}/products`]);
+  loadCategories(): void {
+    this._CategoryService.getMainCategories().subscribe((data) => {
+      this.categories = data;
+    });
+  }
+
+  handleCategoryClick(category: any): void {
+    if (category.hasSubCategories) {
+      // التوجيه إلى الأقسام الفرعية
+      console.log(`Navigate to Subcategories for Category ID: ${category.id}`);
+      this._Router.navigate([`/category/${category.id}/subcategories`]);
+    } else {
+      // التوجيه إلى المنتجات
+      console.log(`Navigate to Products for Category ID: ${category.id}`);
+      this._Router.navigate([`/category/${category.id}/products`]);
+    }
   }
 }
