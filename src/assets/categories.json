@@ -2,16 +2,441 @@
   {
     "id": 1,
     "name": "Electronics",
-    "shortDescription": "Electronics are devices that operate using the principles of electronics.",
     "hasSubCategories": true,
     "subCategories": [
-      { "id": 101, "name": "Mobiles", "hasSubCategories": false },
-      { "id": 102, "name": "Laptops", "hasSubCategories": false }
+      {
+        "id": 101,
+        "name": "Mobiles",
+        "hasSubCategories": false
+      },
+      {
+        "id": 102,
+        "name": "Laptops",
+        "hasSubCategories": false
+      },
+      {
+        "id": 103,
+        "name": "Tablets",
+        "hasSubCategories": false
+      }
     ]
   },
   {
     "id": 2,
+    "name": "Home Appliances",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 201,
+        "name": "Refrigerators",
+        "hasSubCategories": false
+      },
+      {
+        "id": 202,
+        "name": "Washing Machines",
+        "hasSubCategories": false
+      },
+      {
+        "id": 203,
+        "name": "Microwaves",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Clothing",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 301,
+        "name": "Men",
+        "hasSubCategories": false
+      },
+      {
+        "id": 302,
+        "name": "Women",
+        "hasSubCategories": false
+      },
+      {
+        "id": 303,
+        "name": "Kids",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 4,
     "name": "Furniture",
-    "hasSubCategories": false
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 401,
+        "name": "Living Room",
+        "hasSubCategories": false
+      },
+      {
+        "id": 402,
+        "name": "Bedroom",
+        "hasSubCategories": false
+      },
+      {
+        "id": 403,
+        "name": "Office",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Books",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 501,
+        "name": "Fiction",
+        "hasSubCategories": false
+      },
+      {
+        "id": 502,
+        "name": "Non-Fiction",
+        "hasSubCategories": false
+      },
+      {
+        "id": 503,
+        "name": "Academic",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Beauty & Personal Care",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 601,
+        "name": "Skin Care",
+        "hasSubCategories": false
+      },
+      {
+        "id": 602,
+        "name": "Hair Care",
+        "hasSubCategories": false
+      },
+      {
+        "id": 603,
+        "name": "Makeup",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Toys",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 701,
+        "name": "Educational",
+        "hasSubCategories": false
+      },
+      {
+        "id": 702,
+        "name": "Outdoor",
+        "hasSubCategories": false
+      },
+      {
+        "id": 703,
+        "name": "Board Games",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Sports & Fitness",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 801,
+        "name": "Gym Equipment",
+        "hasSubCategories": false
+      },
+      {
+        "id": 802,
+        "name": "Outdoor Gear",
+        "hasSubCategories": false
+      },
+      {
+        "id": 803,
+        "name": "Athletic Wear",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Automotive",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 901,
+        "name": "Car Accessories",
+        "hasSubCategories": false
+      },
+      {
+        "id": 902,
+        "name": "Motorcycle Gear",
+        "hasSubCategories": false
+      },
+      {
+        "id": 903,
+        "name": "Tools",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Groceries",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1001,
+        "name": "Fruits & Vegetables",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1002,
+        "name": "Dairy",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1003,
+        "name": "Snacks",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Health & Wellness",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1101,
+        "name": "Supplements",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1102,
+        "name": "Medical Equipment",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1103,
+        "name": "Personal Care",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Music",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1201,
+        "name": "Instruments",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1202,
+        "name": "Accessories",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1203,
+        "name": "Sheet Music",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Travel",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1301,
+        "name": "Luggage",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1302,
+        "name": "Travel Accessories",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1303,
+        "name": "Camping Gear",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Pet Supplies",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1401,
+        "name": "Food",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1402,
+        "name": "Toys",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1403,
+        "name": "Grooming",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Gardening",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1501,
+        "name": "Plants",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1502,
+        "name": "Tools",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1503,
+        "name": "Outdoor Furniture",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Baby Products",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1601,
+        "name": "Diapers",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1602,
+        "name": "Toys",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1603,
+        "name": "Feeding",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Office Supplies",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1701,
+        "name": "Stationery",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1702,
+        "name": "Furniture",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1703,
+        "name": "Electronics",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Art & Crafts",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1801,
+        "name": "Painting",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1802,
+        "name": "Sculpting",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1803,
+        "name": "Craft Supplies",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Technology",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 1901,
+        "name": "Programming",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1902,
+        "name": "Networking",
+        "hasSubCategories": false
+      },
+      {
+        "id": 1903,
+        "name": "AI & Machine Learning",
+        "hasSubCategories": false
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Ibrahim",
+    "hasSubCategories": true,
+    "subCategories": [
+      {
+        "id": 2001,
+        "name": "Programming",
+        "hasSubCategories": false
+      },
+      {
+        "id": 2002,
+        "name": "Networking",
+        "hasSubCategories": false
+      },
+      {
+        "id": 2003,
+        "name": "AI & Machine Learning",
+        "hasSubCategories": false
+      }
+    ]
   }
 ]
