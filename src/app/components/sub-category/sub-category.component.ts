@@ -17,13 +17,14 @@ export class SubCategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const mainCategory = +this._ActivatedRoute.snapshot.paramMap.get('id')!;
-    // احصل على ID الكتالوج من الاكتيف راوتر
-    this._CategoryService
-      .getSubcategories(mainCategory - 1)
-      .subscribe((subcategories) => {
-        this.subCategories = subcategories || [];
-      });
+    this._ActivatedRoute.paramMap.subscribe((params) => {
+      const mainCategory = +params.get('id')!;
+      this._CategoryService
+        .getSubcategories(mainCategory - 1)
+        .subscribe((subcategories) => {
+          this.subCategories = subcategories || [];
+        });
+    });
   }
 
   goToProducts(subCategory: any): void {
