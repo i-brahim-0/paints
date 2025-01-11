@@ -22,21 +22,19 @@ export class CategoriesComponent implements OnInit {
     this._SharedService.setCatalogs(this.categories); // إرسال البيانات للخدمة المشتركة
   }
 
+  goToSubCategory(category: any): void {
+    if (category.hasSubCategories) {
+      if (category.subCategories.length > 0) {
+        this._Router.navigate([`/category/${category.id}/subcategories`]);
+      }
+    } else {
+      this._Router.navigate([`/category/${category.id}/products`]);
+    }
+  }
+
   loadCategories(): void {
     this._CategoryService.getMainCategories().subscribe((data) => {
       this.categories = data;
     });
-  }
-
-  handleCategoryClick(category: any): void {
-    if (category.hasSubCategories) {
-      // التوجيه إلى الأقسام الفرعية
-      console.log(`Navigate to Subcategories for Category ID: ${category.id}`);
-      this._Router.navigate([`/category/${category.id}/subcategories`]);
-    } else {
-      // التوجيه إلى المنتجات
-      console.log(`Navigate to Products for Category ID: ${category.id}`);
-      this._Router.navigate([`/category/${category.id}/products`]);
-    }
   }
 }

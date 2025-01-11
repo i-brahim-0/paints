@@ -8,7 +8,6 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./sub-category.component.scss'],
 })
 export class SubCategoryComponent implements OnInit {
-  parentCategory: any;
   subCategories: any[] = [];
 
   constructor(
@@ -18,27 +17,16 @@ export class SubCategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._CategoryService.getSubCategories().subscribe((data) => {
-      this.subCategories = data;
-    });
-  }
-  onSubCategoryClick(subCategory: any) {
-    if (subCategory.subCategories && subCategory.subCategories.length > 0) {
-      this._CategoryService.getCategoryById(subCategory.id);
-    }
+    const mainCategory = +this._ActivatedRoute.snapshot.paramMap.get('id')!;
+    // احصل على ID الكتالوج من الاكتيف راوتر
+    this._CategoryService
+      .getSubcategories(mainCategory - 1)
+      .subscribe((subcategories) => {
+        this.subCategories = subcategories || [];
+      });
   }
 
-  handleCategoryClick(category: any): void {
-    if (category.subCategories) {
-      // التوجيه إلى الأقسام الفرعية
-      console.log(
-        `Navigate to Subcategories for Subcategory ID: ${category.id}`
-      );
-      // this._Router.navigate([`/category/${category.id}/subcategories`]);
-    } else {
-      // التوجيه إلى المنتجات
-      console.log(`Navigate to Products for Category ID: ${category.id}`);
-      this._Router.navigate([`/category/${category.id}/products`]);
-    }
+  goToProducts(subCategory: any): void {
+    this._Router.navigate([`/category/${subCategory.id}/products`]);
   }
 }

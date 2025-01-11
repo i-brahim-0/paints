@@ -477,7 +477,7 @@ export class CategoryService {
     {
       id: 20,
       name: 'Ibrahim',
-      hasSubCategories: true,
+      hasSubCategories: false,
       subCategories: [
         {
           id: 2001,
@@ -502,6 +502,13 @@ export class CategoryService {
   ];
 
   private products: Product[] = [
+    {
+      id: 101,
+      name: 'Al-Gharbia',
+      description: 'This is my Governorate',
+      price: 0,
+      categoryId: 20,
+    },
     {
       id: 1,
       name: 'iPhone 14',
@@ -1207,40 +1214,18 @@ export class CategoryService {
   // جلب الأقسام الرئيسية
   getMainCategories(): Observable<any[]> {
     const mainCategories = this.categories.filter(
-      (category) => category.hasSubCategories // الأقسام التي لها أقسام فرعية تعد رئيسية
+      (category) => category.subCategories && category.subCategories.length > 0
+      // الأقسام التي لها أقسام فرعية تعد رئيسية
     );
     return of(mainCategories);
   }
 
-  getSubCategories(): Observable<any[]> {
-    const subCategories = this.categories
-      .filter((category) => category.hasSubCategories)
-      .flatMap((category) => category.subCategories || []);
-    return of(subCategories);
+  getSubcategories(categoryId: number): Observable<any[]> {
+    const category = this.categories[categoryId]; // تحقق من وجود الكاتيجوري
+    const subCategories =
+      category && category.subCategories ? category.subCategories : [];
+    return of(subCategories); // تغليف النتيجة بـ Observable
   }
-
-  // دالة لجلب القسم بناءً على ID
-  getCategoryById(id: number): any {
-    return this.findCategoryById(this.categories, id);
-  }
-
-  // دالة مساعدة للبحث في الأقسام المتداخلة
-  findCategoryById(categories: any[], id: number): any {
-    for (let category of categories) {
-      if (category.id === id) {
-        return category;
-      }
-      if (category.subCategories && category.subCategories.length > 0) {
-        const subCategory = this.findCategoryById(category.subCategories, id);
-        console.log(subCategory);
-        if (subCategory) {
-          return subCategory;
-        }
-      }
-    }
-    return null;
-  }
-  // OR
 
   // جلب المنتجات بناءً على ID الكتالوج
   getProductsByCategoryId(catalogId: number): Product[] {
