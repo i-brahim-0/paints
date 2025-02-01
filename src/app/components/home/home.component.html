@@ -1,23 +1,18 @@
-<div class="container mt-5">
-  <div class="row text-center">
-    <h2 class="title-section">hero section</h2>
-    <h1>تم تهكير هاتفك بنجاح شكرا لك</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam culpa ea
-      adipisci cum accusamus ducimus molestias ab cumque assumenda incidunt vel,
-      tenetur temporibus aperiam reprehenderit, voluptas laboriosam nobis fugit!
-      Fuga.
-    </p>
+<div class="container-fluid p-0">
+  <div class="row text-center hero-sec">
+    <h2 class="title-section">مرحبا بكم في .... ( Welcome)</h2>
+    <video class="video-background" autoplay muted loop>
+      <source src="assets/vedio.mp4" type="video/mp4">
+    </video>
   </div>
-  <hr />
+</div>
+<!-- <hr /> -->
+<div class="container-fluid  second-sec">
   <div class="row text-center">
-    <h2 class="title-section">The Best Seller</h2>
+    <h2 class="title-section p-5">The Best Seller</h2>
     <div *ngIf="isLoading" class="loading-spinner">Loading categories...</div>
     <div class="row" *ngIf="!isLoading">
-      <div
-        class="col-lg-2 col-md-6"
-        *ngFor="let category of displayedCategories"
-      >
+      <div class="col-lg-2 col-md-6" *ngFor="let category of displayedCategories">
         <div class="card">
           <div class="icon-card">
             <i class="fa-solid fa-person-digging"> </i>
@@ -25,28 +20,26 @@
           <div class="card-body">
             <h5 class="card-title">{{ category.name }}</h5>
             <p class="card-text">هذا نص تجريبي لوصف محتوى البطاقة.</p>
-            <a
-              class="btn btn-warning btn-section"
-              (click)="handleCategoryClick(category)"
-              >عرض القسم</a
-            >
+            <a class="btn btn-warning btn-section" (click)="handleCategoryClick(category)">عرض القسم</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <hr />
+</div>
+<div class="contaner-fluid">
+
   <div class="row text-center">
     <h2 class="title-section">
-      رسالة مني ليكم: خدي بالك بكرة 14 وبعده 15 ويوم 16 جااااي Is Raa 💖 👍
+      <span>المنتجات الجديدة</span>
     </h2>
   </div>
-  <hr />
-  <div class="row text-center">
-    <h2 class="title-section">Third section</h2>
-  </div>
-  <hr />
-  <div class="row text-center">
-    <h2 class="title-section">Footer section</h2>
-  </div>
+</div>
+<hr />
+<div class="row text-center">
+  <h2 class="title-section">Third section</h2>
+</div>
+<hr />
+<div class="row text-center">
+  <h2 class="title-section">Footer section</h2>
 </div>
