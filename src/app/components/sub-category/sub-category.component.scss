@@ -1,9 +1,22 @@
 @import "../../../styles.scss";
 
+.bg-sub-category {
+  background-color: #f8f9fa;
+  padding: 20px;
+  height: 100vh;
+}
+
+.title-section {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 34px;
+  font-weight: 800;
+}
+
 .card {
   margin-bottom: 15px;
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.1s;
+  transition: all 0.3s ease-in-out;
 }
 .card:hover {
   transform: scale(1.05);

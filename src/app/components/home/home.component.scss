@@ -7,10 +7,46 @@
   height: 100vh; /* ارتفاع الشاشة بالكامل */
   overflow: hidden; /* يمنع ظهور أشرطة التمرير */
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   padding: 0;
   margin: 0;
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .content_hero {
+    // position: relative;
+    width: 725px;
+    text-align: left;
+    z-index: 1; /* يضع النص فوق الفيديو */
+    padding-left: 30px;
+
+    .brand {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #f01927;
+      padding-left: 10px;
+      letter-spacing: 5px;
+      text-align: left;
+    }
+
+    p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3; /* عدد الأسعار المطلوبة */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+  }
 }
 
 /* يجعل الفيديو خلفية ويغطي الشاشة بالكامل */
@@ -30,18 +66,18 @@
   position: relative;
   z-index: 1; /* يضع النص فوق الفيديو */
   color: white; /* لون النص */
-  font-size: 3rem; /* حجم النص */
+  font-size: 2rem; /* حجم النص */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
 }
 
-.second-sec{
+.second-sec {
   background-color: #f4f4f4;
+  padding-bottom: 100px;
 }
 
 .card {
   margin-bottom: 15px;
-  transition: all 0.2s ease-in-out;
-  transition-delay: 0.1s;
+  transition: all 0.3s ease-in-out;
 }
 .card:hover {
   transform: scale(1.05);
@@ -66,4 +102,34 @@
   padding-top: 10px;
   padding-bottom: 10px;
   color: red;
+}
+// about
+.about-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: left;
+}
+.about-section .title {
+  padding-bottom: 20px;
+  font-weight: 700;
+}
+.about-section .title-desc {
+  color: #333;
+  margin-bottom: 50px;
+}
+.play-video {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  background-color: #dc3545;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.play-video h5 {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.img-about .img-fluid {
+  border-radius: 15px;
 }

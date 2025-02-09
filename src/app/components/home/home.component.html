@@ -1,15 +1,24 @@
-<div class="container-fluid p-0">
-  <div class="row text-center hero-sec">
-    <h2 class="title-section">مرحبا بكم في .... ( Welcome)</h2>
+<!-- Hero Section -->
+<section class="container-fluid p-0">
+  <div class="row hero-sec">
+    <div class="overlay"></div>
+    <div class="content_hero ">
+      <span class="brand">TRAXX</span>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Iure in sequi quam ratione a harum nobis. Sunt quos
+        modi vel labore minima animi, asperiores sequi est voluptatem incidunt eos ad.</p>
+    </div>
     <video class="video-background" autoplay muted loop>
       <source src="assets/vedio.mp4" type="video/mp4">
     </video>
   </div>
-</div>
-<!-- <hr /> -->
-<div class="container-fluid  second-sec">
+</section>
+<!-- Hero Section end -->
+
+<!-- The Best Seller -->
+<section class="container-fluid  second-sec">
   <div class="row text-center">
-    <h2 class="title-section p-5">The Best Seller</h2>
+    <span class="title-section p-5">The Best Seller</span>
     <div *ngIf="isLoading" class="loading-spinner">Loading categories...</div>
     <div class="row" *ngIf="!isLoading">
       <div class="col-lg-2 col-md-6" *ngFor="let category of displayedCategories">
@@ -26,15 +35,67 @@
       </div>
     </div>
   </div>
-</div>
-<div class="contaner-fluid">
+</section>
+<!-- The Best Seller end -->
 
+<!-- About -->
+<section class="about-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-sm-12">
+        <!-- section title -->
+        <div class="section-title ">
+          <h2 class="title">About Us</h2>
+          <div class="title-desc">
+            <p>
+              NEROL Company was established in 1979 in Cairo, Egypt. Initially, its activities were confined to
+              manufacturing and distributing detergents. Later on in 1989 NEROL expanded its activities by providing a
+              wide range of chemical raw materials needed in Egyptian industries; including personal care ,cosmetics,
+              home care ,detergents, painting ,coating, textile, oil and drilling industries.</p>
+            <br>
+            <h2 class="title mt-5">Our Mission</h2>
+            <p>
+              To identify our customers interests and provide them the innovated products with the most competitive
+              prices and the highest quality in order to meet their industrial needs.</p>
+            <u><a class="" href="mission">Read More</a></u>
+          </div>
+        </div>
+        <!-- section title end -->
+      </div>
+      <div class="col-lg-5 col-sm-12">
+        <div class="position-relative">
+          <!-- ttm_single_image-wrapper -->
+          <div class="img-about">
+            <img class="img-fluid" src="https://www.neroleg.com/img.php?img=1671623243.jpg&amp;w=511&amp;h=490" title=""
+              alt="">
+          </div><!-- ttm_single_image-wrapper end -->
+
+          <!--featured-icon-box-->
+          <div class="">
+            <a href="" class="">
+              <img src="https://www.neroleg.com/assets/site/en/images/ttm-playicon-30x30.png" alt="play-icon" class="">
+            </a>
+            <div class="play-video">
+              <h5>Play Video</h5>
+            </div>
+          </div><!-- featured-icon-box end-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About end -->
+
+<!-- New Products -->
+<section class="contaner-fluid">
   <div class="row text-center">
     <h2 class="title-section">
       <span>المنتجات الجديدة</span>
     </h2>
   </div>
-</div>
+</section>
+<!-- New Products end -->
+
 <hr />
 <div class="row text-center">
   <h2 class="title-section">Third section</h2>

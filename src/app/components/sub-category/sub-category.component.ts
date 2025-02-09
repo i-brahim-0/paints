@@ -9,6 +9,7 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class SubCategoryComponent implements OnInit {
   subCategories: any[] = [];
+  mainCategory: string = '';
 
   constructor(
     private _CategoryService: CategoryService,
@@ -18,9 +19,11 @@ export class SubCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe((params) => {
-      const mainCategory = +params.get('id')!;
+      const mainCategoryId = +params.get('id')!;
+      this.mainCategory= params.get('categryName')!;
+      console.log(this.mainCategory);
       this._CategoryService
-        .getSubcategories(mainCategory - 1)
+        .getSubcategories(mainCategoryId - 1)
         .subscribe((subcategories) => {
           this.subCategories = subcategories || [];
         });
