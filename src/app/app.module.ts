@@ -12,6 +12,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { ProductComponent } from './components/product/product.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SubCategoryComponent } from './components/sub-category/sub-category.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SubCategoryComponent } from './components/sub-category/sub-category.com
     ProductComponent,
     CategoriesComponent,
     SubCategoryComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
